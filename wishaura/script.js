@@ -290,15 +290,61 @@ if (params.has("name")) {
 }
 
   // Photo upload
-  const setPhoto = (file) => {
-    if (!file || !file.type.startsWith("image/")) { toast("Please choose an image file"); return; }
-    if (file.size > 8 * 1024 * 1024) { toast("Image is over 8 MB"); return; }
-    const reader = new FileReader();
-    reader.onload = () => {
-      livePhoto.innerHTML = `<img alt="Uploaded photo" src="${reader.result}" />`;
-    };
-    reader.readAsDataURL(file);
-  };
+ const setPhoto = async (file) => {
+
+    if (!file || !file.type.startsWith("image/")) {
+        toast("Please choose an image");
+        return;
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+        toast("Image must be under 8MB");
+        return;
+    }
+
+    try {
+
+        toast("Uploading photo...");
+
+        const formData = new FormData();
+
+        formData.append("file", file);
+        formData.append("upload_preset", "wishaura");
+
+        const response = await fetch(
+            "https://api.cloudinary.com/v1_1/fa7k4nrn/image/upload",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        const data = await response.json();
+
+        if (!data.secure_url) {
+            throw new Error("Upload Failed");
+        }
+
+        uploadedPhoto = data.secure_url;
+
+        livePhoto.innerHTML = `
+            <img
+                src="${uploadedPhoto}"
+                alt="Birthday Photo"
+                crossorigin="anonymous"
+            >
+        `;
+
+        toast("Photo uploaded successfully 🎉");
+
+    } catch (err) {
+
+        console.error(err);
+        toast("Photo upload failed");
+
+    }
+
+};
   drop?.addEventListener("click", () => {
   photoInput?.click();
 });
@@ -390,13 +436,21 @@ toast("🎉 Birthday Wish Created!");
 
 });
 
-function buildShareURL() {
+function buildShareURL(){
 
-    const url = new URL(window.location.origin + window.location.pathname);
+    const url=new URL(location.origin+location.pathname);
 
-    url.searchParams.set("name", nameInput.value.trim());
-    url.searchParams.set("msg", msgInput.value.trim());
-    url.searchParams.set("theme", document.getElementById("liveCard").dataset.theme);
+    url.searchParams.set("name",nameInput.value.trim());
+
+    url.searchParams.set("msg",msgInput.value.trim());
+
+    url.searchParams.set("theme",document.getElementById("liveCard").dataset.theme);
+
+    if(uploadedPhoto){
+
+        url.searchParams.set("photo",uploadedPhoto);
+
+    }
 
     return url.toString();
 
@@ -476,6 +530,15 @@ $("#shareNative")?.addEventListener("click", async () => {
 const downloadCard = async (type = "png") => {
 
     const card = document.getElementById("liveCard");
+   await document.fonts.ready;
+
+const img=card.querySelector("img");
+
+if(img){
+
+await img.decode().catch(()=>{});
+
+}
 
     try {
 
