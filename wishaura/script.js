@@ -287,17 +287,21 @@ if (params.has("name")) {
     };
     reader.readAsDataURL(file);
   };
-  drop?.addEventListener("click", () => photoInput.click());
-  photoInput?.addEventListener("change", (e) => setPhoto(e.target.files[0]));
-  ;["dragover", "dragenter"].forEach((ev) =>
-    drop?.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("is-drag"); })
-  );
-  ;["dragleave", "drop"].forEach((ev) =>
-    drop?.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("is-drag"); })
-  );
-  drop?.addEventListener("drop", (e) => {
-    const f = e.dataTransfer?.files?.[0]; if (f) setPhoto(f);
-  });
+  drop?.addEventListener("click", () => {
+  photoInput?.click();
+});
+
+drop?.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  photoInput?.click();
+});
+
+photoInput?.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if(file){
+    setPhoto(file);
+  }
+});
 
   // Reset
   $("#resetForm")?.addEventListener("click", () => {
