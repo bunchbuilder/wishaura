@@ -1072,3 +1072,12 @@ display:none;
   width:1px;
   height:1px;
 }
+
+
+@media (max-width:768px){
+
+.aurora{
+display:none;
+}
+
+}
