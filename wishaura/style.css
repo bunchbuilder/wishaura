@@ -1058,3 +1058,10 @@ display:none;
 display:none;
 
 }
+
+#photo{
+  position:absolute;
+  opacity:0;
+  width:1px;
+  height:1px;
+}
