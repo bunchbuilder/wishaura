@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0620" />
+  <title>WishAura — The most beautiful birthday wishing experience on the internet</title>
+  <meta name="description" content="Create breathtaking, animated birthday wishes in seconds. WishAura is a premium birthday card generator with glassmorphism, aurora themes, confetti, music and instant sharing." />
+  <meta name="keywords" content="birthday wishes, birthday card generator, animated birthday, happy birthday, birthday website, WishAura, birthday message, birthday video, aesthetic birthday card" />
+  <meta name="author" content="WishAura" />
+  <link rel="canonical" href="https://wishaura.app/" />
+
+  <!-- Open Graph -->
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="WishAura — Create Beautiful Birthday Wishes">
+
+<meta property="og:description"
+content="Create beautiful birthday wishes with photos, themes and instant sharing.">
+
+<meta property="og:url"
+content="https://wishaura.vercel.app/">
+
+<meta property="og:image"
+content="https://wishaura.vercel.app/images/og-image.jpg">
+
+<meta property="og:site_name"
+content="WishAura">
+
+<!-- Twitter -->
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<meta name="twitter:title"
+content="WishAura — Create Beautiful Birthday Wishes">
+
+<meta name="twitter:description"
+content="Create beautiful birthday wishes instantly.">
+
+<meta name="twitter:image"
+content="https://wishaura.vercel.app/images/og-image.jpg">
+  <!-- PWA & Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Instrument+Serif&family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"WishAura",
+    "url":"https://wishaura.app/",
+    "applicationCategory":"DesignApplication",
+    "operatingSystem":"Any",
+    "description":"A premium birthday card generator with aurora themes, confetti, music and instant share.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+
+  <!-- html to image for PNG/JPG export -->
+  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+</head>
+<body data-theme="aurora">
+<div id="loader">
+
+<h2>WishAura</h2>
+
+<p>Creating Magic...</p>
+
+<div class="loader-bar">
+<div class="loader-fill"></div>
+</div>
+
+</div>
+  <!-- Aurora background layers -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora-blob a"></span>
+    <span class="aurora-blob b"></span>
+    <span class="aurora-blob c"></span>
+    <span class="aurora-blob d"></span>
+    <div class="grain"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Floating particles -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Nav -->
+  <header class="nav" role="banner">
+    <a href="#top" class="brand" data-testid="brand-link" aria-label="WishAura home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="28" height="28"><defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffd6a5"/><stop offset=".5" stop-color="#ff8fb1"/><stop offset="1" stop-color="#9a8cff"/></linearGradient></defs><path fill="url(#lg)" d="M20 3l3.6 8 8.7 1.1-6.4 6 1.6 8.7L20 22.6l-7.5 4.2L14 18l-6.4-6L16.3 11z"/></svg>
+      </span>
+      <span class="brand-name">WishAura</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features" data-testid="nav-features">Features</a>
+      <a href="#create" data-testid="nav-create">Create</a>
+      <a href="#themes" data-testid="nav-themes">Themes</a>
+      <a href="#faq" data-testid="nav-faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn-ghost" id="musicToggle" data-testid="music-toggle" aria-pressed="false" aria-label="Toggle background music">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span class="music-label">Music</span>
+      </button>
+      <a href="#create" class="btn-primary btn-sm" data-testid="nav-cta">Create wish</a>
+    </div>
+  </header>
+
+  <!-- Top banner ad slot -->
+  <aside class="ad ad-top" aria-label="Advertisement" data-testid="ad-top">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot" data-slot="top-banner"></div>
+  </aside>
+
+  <main id="top">
+
+<section class="shared-page" id="sharedPage">
+
+<div class="shared-top">
+
+<div class="shared-logo">
+
+✨ WishAura
+
+</div>
+
+<p>
+
+This birthday wish was created with WishAura.
+
+</p>
+
+</div>
+
+<div class="shared-card-holder"></div>
+
+<a href="index.html" class="btn-primary shared-btn">
+
+✨ Create Your Own Card
+
+</a>
+
+</section>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="pill" data-testid="hero-pill">
+            <span class="pill-dot"></span> Made for the ones you love
+          </span>
+         <h1 class="headline">
+  <span class="line reveal">Make Someone's</span>
+
+  <span class="line reveal">
+      <span class="grad">Birthday</span>
+      Unforgettable
+  </span>
+
+  <span class="line reveal">
+      With Pure Magic ✨
+  </span>
+</h1>
+         <p class="lede reveal">
+Create a magical birthday experience with beautiful animations,
+personalized wishes, music, confetti and premium greeting cards
+that your loved ones will remember forever.
+</p>
+          <div class="cta-row reveal">
+            <a href="#create" class="btn-primary" data-testid="hero-cta-primary">
+              <span>✨ Create Magical Wish</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#preview" class="btn-ghost" data-testid="hero-cta-secondary">🎉 Live Preview</a>
+          </div>
+
+          <ul class="hero-stats reveal">
+
+<li>
+<strong>100%</strong>
+<span>Free Forever</span>
+</li>
+
+<li>
+<strong>HD</strong>
+<span>Download</span>
+</li>
+
+<li>
+<strong>No</strong>
+<span>Sign Up</span>
+</li>
+
+</ul>
+        </div>
+
+        <!-- Live hero card preview -->
+        <div class="hero-card-wrap reveal" id="preview">
+          <div class="tilt" id="heroTilt">
+            <article class="card card-preview" id="heroCard" aria-label="Live birthday card preview">
+              <div class="card-media">
+                <div class="card-photo" id="heroPhoto" aria-hidden="true">
+                  <svg viewBox="0 0 200 200" width="100%" height="100%"><defs><linearGradient id="ph" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffd6a5"/><stop offset="1" stop-color="#ff8fb1"/></linearGradient></defs><rect width="200" height="200" fill="url(#ph)"/><circle cx="100" cy="82" r="34" fill="#fff" opacity=".9"/><path d="M40 180c8-38 40-56 60-56s52 18 60 56z" fill="#fff" opacity=".9"/></svg>
+                </div>
+                <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+              </div>
+              <div class="card-body">
+                <span class="card-eyebrow">Happy Birthday</span>
+                <h3 class="card-name" id="heroName">Amara</h3>
+                <p class="card-msg" id="heroMsg">May your year bloom with joy, wild adventures and quiet magic. You deserve every single one.</p>
+                <div class="card-foot">
+                  <span class="card-badge">— from WishAura</span>
+                  <span class="card-cake" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20v-6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6"/><path d="M9 12V9"/><path d="M12 12V8"/><path d="M15 12V9"/><path d="M12 5v0"/></svg>
+                  </span>
+                </div>
+              </div>
+              <span class="halo" aria-hidden="true"></span>
+            </article>
+          </div>
+          <div class="float-emoji e1">🎂</div>
+          <div class="float-emoji e2">🎈</div>
+          <div class="float-emoji e3">✨</div>
+          <div class="float-emoji e4">🎁</div>
+        </div>
+      </div>
+    </section>
+
+   
+    <!-- FEATURES -->
+    <section id="features" class="features">
+      <header class="section-head">
+        <span class="eyebrow">Why WishAura</span>
+        <h2>Every detail designed to feel like a hug.</h2>
+        <p>From aurora backdrops to hand-tuned motion, WishAura obsesses over the small things so your birthday message lands with real emotion.</p>
+      </header>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="ficon" style="--c:#ffd6a5">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.5L20 10l-5.6 1.5L12 17l-2.4-5.5L4 10l5.6-1.5L12 3z"/></svg>
+          </div>
+          <h3>Cinematic themes</h3>
+          <p>Seven hand-crafted aesthetics — from Luxury Gold to Dark Neon — each with its own palette, decor and motion language.</p>
+        </article>
+        <article class="feature">
+          <div class="ficon" style="--c:#a3f7bf">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.5L4 20V4z"/></svg>
+          </div>
+          <h3>Made in seconds</h3>
+          <p>Type a name, drop a photo, pick a theme. Your animated card is ready before the candles are lit.</p>
+        </article>
+        <article class="feature">
+          <div class="ficon" style="--c:#9a8cff">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+          <h3>Emotion by design</h3>
+          <p>Confetti bursts, floating hearts, sparkles and gentle parallax — motion tuned by frame, not by preset.</p>
+        </article>
+        <article class="feature">
+          <div class="ficon" style="--c:#ff8fb1">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l1.5 6h13L20 12"/><path d="M4 12l8-7 8 7"/><path d="M9 22V12h6v10"/></svg>
+          </div>
+          <h3>Share anywhere</h3>
+          <p>WhatsApp, Instagram, email, native share, or export a crystal-clear PNG / JPG straight to your camera roll.</p>
+        </article>
+        <article class="feature">
+          <div class="ficon" style="--c:#7ee1ff">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/></svg>
+          </div>
+          <h3>Made for every screen</h3>
+          <p>Pixel-perfect from a 320px phone to a 4K display. Buttery smooth even on older devices.</p>
+        </article>
+        <article class="feature">
+          <div class="ficon" style="--c:#ffb86b">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          </div>
+          <h3>Ambient music</h3>
+          <p>Optional ambient birthday score. Never autoplays. Remembers your choice next visit.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CREATE / GENERATOR -->
+    <section id="create" class="create">
+      <header class="section-head">
+        <span class="eyebrow">The generator</span>
+        <h2>Design their card. Watch it come alive.</h2>
+        <p>Every keystroke updates the preview in real time. Pick a theme and let WishAura score the moment.</p>
+      </header>
+
+      <div class="studio">
+        <form class="studio-form glass" id="wishForm" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="name">Birthday person</label>
+            <input id="name" name="name" type="text" placeholder="e.g. Amara" maxlength="28" required data-testid="input-name" />
+          </div>
+
+          <div class="field">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" rows="4" maxlength="240" placeholder="Write something they'll remember forever…" data-testid="input-message"></textarea>
+            <span class="counter"><span id="msgCount">0</span> / 240</span>
+          </div>
+
+          <div class="field">
+            <label for="photo">Photo (optional)</label>
+            <div class="drop" id="drop" data-testid="drop-zone">
+              <input id="photo" name="photo" type="file" accept="image/*" hidden data-testid="input-photo" />
+              <div class="drop-inner">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><rect x="3" y="15" width="18" height="6" rx="2"/></svg>
+                <span>Drop a photo, or <u>browse</u></span>
+                <small>PNG, JPG or WEBP — up to 8&nbsp;MB</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Theme</label>
+            <div class="theme-picker" role="radiogroup" aria-label="Card theme" id="themePicker">
+              <button type="button" class="chip is-active" data-theme="aurora" data-testid="theme-aurora"><span class="dot" style="background:linear-gradient(135deg,#ffd6a5,#ff8fb1,#9a8cff)"></span>Aurora</button>
+              <button type="button" class="chip" data-theme="kids" data-testid="theme-kids"><span class="dot" style="background:linear-gradient(135deg,#7ee1ff,#ffea7a)"></span>Kids</button>
+              <button type="button" class="chip" data-theme="minimal" data-testid="theme-minimal"><span class="dot" style="background:linear-gradient(135deg,#f4f4f2,#c9c9c4)"></span>Minimal</button>
+              <button type="button" class="chip" data-theme="gold" data-testid="theme-gold"><span class="dot" style="background:linear-gradient(135deg,#f6d365,#b8860b)"></span>Luxury Gold</button>
+              <button type="button" class="chip" data-theme="royal" data-testid="theme-royal"><span class="dot" style="background:linear-gradient(135deg,#6a3df5,#c39cff)"></span>Royal Purple</button>
+              <button type="button" class="chip" data-theme="pink" data-testid="theme-pink"><span class="dot" style="background:linear-gradient(135deg,#ffc0e0,#ff7fb2)"></span>Cute Pink</button>
+              <button type="button" class="chip" data-theme="neon" data-testid="theme-neon"><span class="dot" style="background:linear-gradient(135deg,#00ffa3,#00d1ff,#ff00d4)"></span>Dark Neon</button>
+            </div>
+          </div>
+
+          <div class="field row">
+            <button type="submit" class="btn-primary" data-testid="btn-generate">
+              <span>Generate wish</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg>
+            </button>
+            <button type="button" class="btn-ghost" id="resetForm" data-testid="btn-reset">Reset</button>
+          </div>
+        </form>
+
+        <div class="studio-preview">
+          <div class="tilt" id="cardTilt">
+            <article class="card card-live" id="liveCard" data-theme="aurora">
+              <div class="card-media">
+                <div class="card-photo" id="livePhoto">
+                  <svg viewBox="0 0 200 200" width="100%" height="100%"><defs><linearGradient id="lp" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffd6a5"/><stop offset="1" stop-color="#ff8fb1"/></linearGradient></defs><rect width="200" height="200" fill="url(#lp)"/><circle cx="100" cy="82" r="34" fill="#fff" opacity=".9"/><path d="M40 180c8-38 40-56 60-56s52 18 60 56z" fill="#fff" opacity=".9"/></svg>
+                </div>
+                <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+              </div>
+              <div class="card-body">
+                <span class="card-eyebrow">Happy Birthday</span>
+                <h3 class="card-name" id="liveName">Your name</h3>
+                <p class="card-msg" id="liveMsg">Your message will appear right here, live as you type.</p>
+                <div class="card-foot">
+                  <span class="card-badge">— with love, WishAura</span>
+                  <span class="card-cake" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20v-6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6"/><path d="M9 12V9M12 12V8M15 12V9"/></svg>
+                  </span>
+                </div>
+              </div>
+              <span class="halo" aria-hidden="true"></span>
+            </article>
+          </div>
+
+          <div class="share-row">
+            <button class="btn-share" id="shareWhatsapp" data-testid="share-whatsapp" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 3.5A11 11 0 0 0 3.4 17.9L2 22l4.2-1.4A11 11 0 1 0 20 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.5.8.8-2.4-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.2-3.3-2.8-.2-.4.2-.4.6-1.2 0-.2 0-.3-.1-.4l-.9-2c-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.6 1.9.7 2.6.8 3.5.7.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+              WhatsApp
+            </button>
+            <button class="btn-share" id="shareCopy" data-testid="share-copy" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              Copy link
+            </button>
+            <button class="btn-share" id="shareNative" data-testid="share-native" aria-label="Share via device">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+              Share
+            </button>
+            <button class="btn-share" id="downloadPng" data-testid="download-png" aria-label="Download PNG">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><rect x="3" y="17" width="18" height="4" rx="1.5"/></svg>
+              PNG
+            </button>
+            <button class="btn-share" id="downloadJpg" data-testid="download-jpg" aria-label="Download JPG">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><rect x="3" y="17" width="18" height="4" rx="1.5"/></svg>
+              JPG
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN-CONTENT AD -->
+    <aside class="ad ad-native" aria-label="Advertisement" data-testid="ad-native">
+      <span class="ad-label">Sponsored</span>
+      <div class="ad-slot" data-slot="in-content"></div>
+    </aside>
+
+    <!-- THEMES -->
+    <section id="themes" class="themes">
+      <header class="section-head">
+        <span class="eyebrow">Signature themes</span>
+        <h2>Seven aesthetics. One perfect moment.</h2>
+        <p>Tap any theme to instantly restyle the card, the page and every animation.</p>
+      </header>
+      <div class="theme-grid">
+        <button class="theme-card" data-theme="aurora" data-testid="themecard-aurora"><div class="tswatch aurora-sw"></div><div class="tinfo"><h4>Aurora</h4><span>Warm gradients & glass</span></div></button>
+        <button class="theme-card" data-theme="kids" data-testid="themecard-kids"><div class="tswatch kids-sw"></div><div class="tinfo"><h4>Kids</h4><span>Playful & bright</span></div></button>
+        <button class="theme-card" data-theme="minimal" data-testid="themecard-minimal"><div class="tswatch minimal-sw"></div><div class="tinfo"><h4>Minimal</h4><span>Quiet & editorial</span></div></button>
+        <button class="theme-card" data-theme="gold" data-testid="themecard-gold"><div class="tswatch gold-sw"></div><div class="tinfo"><h4>Luxury Gold</h4><span>Champagne & noir</span></div></button>
+        <button class="theme-card" data-theme="royal" data-testid="themecard-royal"><div class="tswatch royal-sw"></div><div class="tinfo"><h4>Royal Purple</h4><span>Velvet & moonlight</span></div></button>
+        <button class="theme-card" data-theme="pink" data-testid="themecard-pink"><div class="tswatch pink-sw"></div><div class="tinfo"><h4>Cute Pink</h4><span>Bubblegum & bloom</span></div></button>
+        <button class="theme-card" data-theme="neon" data-testid="themecard-neon"><div class="tswatch neon-sw"></div><div class="tinfo"><h4>Dark Neon</h4><span>Cyberpunk & glow</span></div></button>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="quotes">
+      <header class="section-head">
+        <span class="eyebrow">Loved worldwide</span>
+        <h2>Small moments. Big feelings.</h2>
+      </header>
+      <div class="quote-grid">
+        <figure class="quote glass"><blockquote>“I sent my mom a WishAura card at midnight — she called me crying. In a good way.”</blockquote><figcaption>— Priya, Bengaluru</figcaption></figure>
+        <figure class="quote glass"><blockquote>“The animations feel like Apple made them. My friends thought I hired a designer.”</blockquote><figcaption>— Lucas, São Paulo</figcaption></figure>
+        <figure class="quote glass"><blockquote>“Finally a birthday site that isn't tacky. It's actually beautiful. Bookmarked forever.”</blockquote><figcaption>— Amelia, London</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <header class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2>Everything you might wonder.</h2>
+      </header>
+      <div class="faq-list">
+        <details class="faq-item" data-testid="faq-1"><summary>Is WishAura free to use?<span class="chev"></span></summary><p>Yes — every theme, animation and export is 100% free. No sign-up. No watermark.</p></details>
+        <details class="faq-item" data-testid="faq-2"><summary>Do my photos leave my device?<span class="chev"></span></summary><p>No. Everything happens inside your browser. Your photo is never uploaded or stored on a server.</p></details>
+        <details class="faq-item" data-testid="faq-3"><summary>Can I download the card in HD?<span class="chev"></span></summary><p>Yes — you can export a crisp PNG or JPG, ready to post, print or send.</p></details>
+        <details class="faq-item" data-testid="faq-4"><summary>Does it work on my phone?<span class="chev"></span></summary><p>WishAura is designed mobile-first — every animation is smooth on modern iOS and Android devices.</p></details>
+        <details class="faq-item" data-testid="faq-5"><summary>Can I use my own music?<span class="chev"></span></summary><p>The built-in ambient score is optional. Custom music uploads are on the roadmap.</p></details>
+      </div>
+    </section>
+
+    <!-- BOTTOM AD -->
+    <aside class="ad ad-bottom" aria-label="Advertisement" data-testid="ad-bottom">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot" data-slot="bottom-banner"></div>
+    </aside>
+  </main>
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about section">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-badge">✨ About WishAura</span>
+      <h2>The most beautiful way to celebrate birthdays.</h2>
+      <p>
+        WishAura helps you create stunning birthday wishes in seconds with
+        premium themes, beautiful animations, music, and easy sharing.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="glass-card">
+        <div class="icon">🎂</div>
+        <h3>Beautiful Designs</h3>
+        <p>
+          Create elegant birthday cards with modern layouts and stunning visuals.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="icon">🎨</div>
+        <h3>Premium Themes</h3>
+        <p>
+          Choose from multiple carefully crafted themes for every personality.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="icon">📤</div>
+        <h3>Easy Sharing</h3>
+        <p>
+          Download your birthday card or instantly share it with friends and family.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <div class="icon">⚡</div>
+        <h3>Fast & Free</h3>
+        <p>
+          No design skills required. Create memorable birthday wishes in just a few clicks.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="24" height="24"><use href="#lg"/><path fill="url(#lg)" d="M20 3l3.6 8 8.7 1.1-6.4 6 1.6 8.7L20 22.6l-7.5 4.2L14 18l-6.4-6L16.3 11z"/></svg>
+          </span>
+          <span class="brand-name">WishAura</span>
+        </div>
+        <p>The most beautiful way to say happy birthday.</p>
+      </div>
+      <div class="footer-links">
+        <div><h5>Product</h5><a href="#create">Create</a><a href="#themes">Themes</a><a href="#features">Features</a><a href="contact.html">Contact</a></div>
+        <div><h5>Company</h5><a href="#about">About</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+        <div><h5>Follow</h5><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">X / Twitter</a></div>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="year">2026</span> WishAura. Made with 💛 for birthdays everywhere.</span>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite" data-testid="toast"></div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Music (silent placeholder, generated via WebAudio in script) -->
+
+  <script src="/script.js" defer></script>
+
+
+</body>
+</html>

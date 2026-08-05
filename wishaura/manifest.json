@@ -1,0 +1,12 @@
+{
+  "name": "WishAura — The most beautiful birthday wishes",
+  "short_name": "WishAura",
+  "description": "Create breathtaking, animated birthday wishes in seconds. Themes, music, share.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0620",
+  "theme_color": "#0b0620",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
