@@ -107,6 +107,11 @@
 
   // ------- Particles (soft firefly field) -------
   (() => {
+
+if(window.innerWidth<768)return;
+
+const canvas=$("#particles");
+   (() => {
     const canvas = $("#particles");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
