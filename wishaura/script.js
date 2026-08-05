@@ -225,6 +225,7 @@
   const photoInput = $("#photo");
   const livePhoto = $("#livePhoto");
   const drop = $("#drop");
+   
 
   const updatePreview = () => {
     const n = (nameInput?.value || "").trim();
@@ -238,42 +239,53 @@
 
 // ===== Load card from shared URL =====
 
+let uploadedPhoto = "";
+
 const params = new URLSearchParams(window.location.search);
 
 const sharedName = params.get("name");
 const sharedMsg = params.get("msg");
 const sharedTheme = params.get("theme");
+const sharedPhoto = params.get("photo");
 
-if (params.has("name")) {
-    document.body.classList.add("shared-mode");
-}
 if (sharedName) nameInput.value = sharedName;
 if (sharedMsg) msgInput.value = sharedMsg;
 
-const liveCard = document.getElementById("liveCard");
-
-if (sharedTheme && liveCard) {
-    liveCard.dataset.theme = sharedTheme;
-}
+updatePreview();
 
 if (sharedTheme) {
-    document.getElementById("liveCard").dataset.theme = sharedTheme;
+    applyTheme(sharedTheme);
 }
-  updatePreview();
 
-//sharedmode
+if (sharedPhoto) {
+
+    uploadedPhoto = sharedPhoto;
+
+    livePhoto.innerHTML = `
+        <img
+            src="${sharedPhoto}"
+            alt="Birthday Photo"
+            crossorigin="anonymous"
+        >
+    `;
+
+}
 
 if (params.has("name")) {
 
     document.body.classList.add("shared-mode");
 
-    const original = document.getElementById("liveCard");
+    setTimeout(() => {
 
-    const clone = original.cloneNode(true);
+        const clone = document
+            .getElementById("liveCard")
+            .cloneNode(true);
 
-    document
-        .querySelector(".shared-card-holder")
-        .appendChild(clone);
+        document
+            .querySelector(".shared-card-holder")
+            .appendChild(clone);
+
+    },300);
 
 }
 
