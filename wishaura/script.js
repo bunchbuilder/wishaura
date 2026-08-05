@@ -691,7 +691,7 @@ hero.style.transform=`translate(${x}px,${y}px)`;
 
 }
 
-
+   {
 document.querySelectorAll("button,.btn").forEach(btn=>{
 
 btn.addEventListener("mousedown",()=>{
@@ -709,7 +709,7 @@ btn.style.transform="";
 btn.addEventListener("mouseleave",()=>{
 
 btn.style.transform="";
-
+});
 });
 
-});
+   }
