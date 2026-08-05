@@ -660,33 +660,31 @@ window.addEventListener("load",()=>{
 const loader=document.getElementById("loader");
 const hero=document.querySelector(".hero");
 
-setTimeout(()=>{
-
 loader.classList.add("hide");
 
-setTimeout(()=>{
-
-hero.classList.add("show");
-
-},300);
-
-},2200);
+requestAnimationFrame(()=>{
+    hero.classList.add("show");
+});
 
 });
 
 
+if(window.innerWidth > 768){
 
+const hero=document.querySelector(".hero");
 
-const hero = document.querySelector(".hero");
+document.addEventListener("mousemove",(e)=>{
 
-document.addEventListener("mousemove", (e) => {
-  if (!hero) return;
+if(!hero)return;
 
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+const x=(e.clientX/window.innerWidth-.5)*20;
+const y=(e.clientY/window.innerHeight-.5)*20;
 
-  hero.style.transform = `translate(${x}px, ${y}px)`;
+hero.style.transform=`translate(${x}px,${y}px)`;
+
 });
+
+}
 
 
 
