@@ -1081,3 +1081,15 @@ display:none;
 }
 
 }
+.ad-slot{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-height:120px;
+    overflow:hidden;
+}
+
+.ad-bottom{
+    margin:60px auto;
+}
