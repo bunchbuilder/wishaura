@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wishaura.app/sitemap.xml
+Sitemap: https://wishaura.vercel.app/sitemap.xml
